@@ -18,7 +18,7 @@ db = SQLAlchemy(app)
 
 app.config['MAIL_SERVER'] = 'smtp.yandex.com'
 app.config['MAIL_PORT'] = 465
-app.config['MAIL_USERNAME'] = 'no-reply@inadsglobal.com'
+app.config['MAIL_USERNAME'] = 'bulten@gunluk.app'
 app.config['MAIL_PASSWORD'] = '05082004Oo'
 app.config['MAIL_USE_SSL'] = True
 
@@ -49,7 +49,7 @@ def generate_email():
 
 def send_daily_emails():
     msg = Message("Günlük Bülteniniz",
-                  sender="no-reply@inadsglobal.com",
+                  sender="bulten@gunluk.app",
                   recipients=[i.email for i in Subscriber.query.all()])
 
     msg.html = generate_email()
