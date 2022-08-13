@@ -88,7 +88,7 @@ def admin(username, password):
                               content=values["content"], image_content=encoded_string)
             db.session.add(new_story)
             db.session.commit()
-        return flask.render_template("admin.html")
+        return flask.render_template("admin.html", number_of_subs=len(Subscriber.query.all()))
 
 
 @app.route("/admin-send-mail/<user>/<password>")
