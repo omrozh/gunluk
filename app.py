@@ -59,6 +59,8 @@ def send_daily_emails():
 @app.route("/", methods=["POST", "GET"])
 def index():
     if flask.request.method == "POST":
+        if Subscriber.query.filter_by(email=flask.request.values["email"]).first():
+            return "Zaten Kayıt Oldunuz"
         new_subscriber = Subscriber(id=str(uuid4()), email=flask.request.values["email"],
                                     subscribed_date=datetime.today())
         db.session.add(new_subscriber)
