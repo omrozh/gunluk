@@ -1,3 +1,5 @@
+# coding=utf-8
+
 import flask
 from flask_sqlalchemy import SQLAlchemy
 from uuid import uuid4
